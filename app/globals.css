@@ -177,6 +177,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .info-view { border-radius: 1.4rem; padding: clamp(1.15rem, 3vw, 2rem); }
 .info-heading { max-width: 760px; }
 .info-heading p:last-child { margin: .55rem 0 0; color: var(--muted-foreground); line-height: 1.6; }
+.model-intro { display: grid; grid-template-columns: minmax(250px, .7fr) minmax(420px, 1.3fr); gap: clamp(1.2rem, 3vw, 2.5rem); align-items: center; }
+.contact-map { margin: 0; }
+.contact-map img { display: block; width: 100%; height: auto; border-radius: 1rem; border: 1px solid color-mix(in oklab, var(--chart-1) 30%, var(--border)); box-shadow: 0 18px 42px color-mix(in oklab, var(--foreground) 10%, transparent); }
+.contact-map figcaption { margin-top: .55rem; color: var(--muted-foreground); font-size: .75rem; line-height: 1.5; }
 .rule-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .8rem; margin-top: 1.5rem; }
 .rule-grid article, .limits-grid section { border-top: 2px solid color-mix(in oklab, var(--chart-1) 55%, var(--border)); padding-top: .85rem; }
 .rule-grid article:nth-child(4) { border-color: color-mix(in oklab, var(--chart-4) 65%, var(--border)); }
@@ -208,6 +212,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .prediction-box { align-self: end; margin-top: 0; }
   .action-row { align-self: start; }
   .rule-grid { grid-template-columns: 1fr 1fr; }
+  .model-intro { grid-template-columns: 1fr; }
   .test-row { grid-template-columns: 2rem 1fr auto; }
   .test-result { grid-column: 2; }
   .test-row button { grid-column: 3; grid-row: 1 / span 3; }

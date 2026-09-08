@@ -419,7 +419,10 @@ function SimulationCanvas({
       className="h-full min-h-[340px] w-full"
       aria-label={`Animated educational model of a ${outcome.toLowerCase()} between the ligand and a simplified dopamine D2 receptor pocket.`}
     >
-      Your browser needs canvas support to show the moving ligand model.
+      <img
+        src="/dopamine-d2-contact-map.svg"
+        alt="Static contact map showing dopamine aligned with Asp114, Ser193, and Ser197 in the simplified D2 pocket."
+      />
     </canvas>
   );
 }
@@ -636,10 +639,16 @@ export default function Home() {
         </TabsContent>
 
         <TabsContent value="model" className="info-view">
-          <div className="info-heading">
-            <p className="step-label">The rules behind the motion</p>
-            <h2>Grounded ideas, transparent simplifications</h2>
-            <p>The score combines contact opportunities. It is not a measured energy, force, affinity, or probability.</p>
+          <div className="model-intro">
+            <div className="info-heading">
+              <p className="step-label">The rules behind the motion</p>
+              <h2>Grounded ideas, transparent simplifications</h2>
+              <p>The score combines contact opportunities. It is not a measured energy, force, affinity, or probability.</p>
+            </div>
+            <figure className="contact-map">
+              <img src="/dopamine-d2-contact-map.svg" alt="Contact map of dopamine's modeled ring fit, ionic contact with Asp114, and polar contacts with Ser193 and Ser197." />
+              <figcaption>A static key to the feature colors and contact geometry used in the animated lab.</figcaption>
+            </figure>
           </div>
           <div className="rule-grid">
             <article><span className="rule-index">+2.8</span><h3>Charge complementarity</h3><p>NH₃⁺ near the negatively charged Asp114 patch is the strongest modeled contact.</p></article>
