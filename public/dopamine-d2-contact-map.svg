@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">Simplified dopamine and D2 receptor contact map</title>
+  <desc id="description">An educational diagram showing dopamine's protonated amine aligned with Asp114, two catechol hydroxyl groups aligned with Ser193 and Ser197, and the aromatic ring fitting a simplified receptor pocket.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#061426"/>
+      <stop offset="0.55" stop-color="#0b1c31"/>
+      <stop offset="1" stop-color="#1b1031"/>
+    </linearGradient>
+    <linearGradient id="pocket" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#13516c"/>
+      <stop offset="0.52" stop-color="#25345c"/>
+      <stop offset="1" stop-color="#41204f"/>
+    </linearGradient>
+    <radialGradient id="pink" cx="35%" cy="25%">
+      <stop stop-color="#fff"/>
+      <stop offset="0.2" stop-color="#ff719d"/>
+      <stop offset="1" stop-color="#712647"/>
+    </radialGradient>
+    <radialGradient id="cyan" cx="35%" cy="25%">
+      <stop stop-color="#fff"/>
+      <stop offset="0.2" stop-color="#39d8ea"/>
+      <stop offset="1" stop-color="#15566f"/>
+    </radialGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <pattern id="dots" width="42" height="42" patternUnits="userSpaceOnUse"><circle cx="5" cy="7" r="1.5" fill="#bfefff" opacity=".12"/></pattern>
+  </defs>
+
+  <rect width="1200" height="630" rx="28" fill="url(#bg)"/>
+  <rect width="1200" height="630" rx="28" fill="url(#dots)"/>
+  <text x="64" y="66" fill="#85a9bd" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="700" letter-spacing="2.4">EDUCATIONAL CONTACT MAP</text>
+  <text x="64" y="110" fill="#f1f8fc" font-family="Inter,Arial,sans-serif" font-size="34" font-weight="650">How dopamine features align in the model</text>
+  <text x="64" y="142" fill="#9db5c5" font-family="Inter,Arial,sans-serif" font-size="17">Several weak, complementary contacts combine to support a stable dock.</text>
+
+  <!-- Dopamine ligand -->
+  <g transform="translate(330 330)">
+    <text x="-165" y="-132" fill="#8aaabd" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="1.7">DOPAMINE</text>
+    <path d="M-86 0-43-75H43L86 0 43 75H-43Z" fill="#7355d4" stroke="#dcd4ff" stroke-width="5" filter="url(#glow)"/>
+    <path d="M52-60 89-100M52 60 89 100M86 0h92" fill="none" stroke="#bbcad8" stroke-width="11" stroke-linecap="round"/>
+    <path d="M108 0h70" fill="none" stroke="#bbcad8" stroke-width="5"/>
+    <circle cx="102" cy="-112" r="36" fill="url(#cyan)" filter="url(#glow)"/>
+    <circle cx="102" cy="112" r="36" fill="url(#cyan)" filter="url(#glow)"/>
+    <circle cx="205" cy="0" r="42" fill="url(#pink)" filter="url(#glow)"/>
+    <text x="0" y="7" fill="white" font-family="Inter,Arial,sans-serif" font-size="19" font-weight="700" text-anchor="middle">ring</text>
+    <text x="102" y="-105" fill="white" font-family="Inter,Arial,sans-serif" font-size="19" font-weight="700" text-anchor="middle">OH</text>
+    <text x="102" y="119" fill="white" font-family="Inter,Arial,sans-serif" font-size="19" font-weight="700" text-anchor="middle">OH</text>
+    <text x="205" y="7" fill="white" font-family="Inter,Arial,sans-serif" font-size="19" font-weight="700" text-anchor="middle">NH₃⁺</text>
+  </g>
+
+  <!-- Simplified pocket -->
+  <path d="M1200 158H970c-96 36-68 91-147 111-74 19-113 17-113 47 0 31 42 34 113 52 80 21 50 86 147 109h230Z" fill="url(#pocket)" stroke="#57bfd0" stroke-opacity=".35" stroke-width="3"/>
+  <text x="1005" y="201" fill="#9ab7ca" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="1.7">SIMPLIFIED D2 POCKET</text>
+  <circle cx="860" cy="242" r="39" fill="url(#cyan)" filter="url(#glow)"/>
+  <circle cx="860" cy="390" r="39" fill="url(#cyan)" filter="url(#glow)"/>
+  <circle cx="992" cy="316" r="47" fill="url(#pink)" filter="url(#glow)"/>
+  <text x="860" y="248" fill="white" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="700" text-anchor="middle">SER193</text>
+  <text x="860" y="396" fill="white" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="700" text-anchor="middle">SER197</text>
+  <text x="992" y="311" fill="white" font-family="Inter,Arial,sans-serif" font-size="17" font-weight="700" text-anchor="middle">ASP114</text>
+  <text x="992" y="333" fill="white" font-family="Inter,Arial,sans-serif" font-size="21" font-weight="700" text-anchor="middle">−</text>
+
+  <!-- Contact guides -->
+  <g fill="none" stroke-linecap="round" stroke-width="4" stroke-dasharray="10 10">
+    <path d="M432 218 822 242" stroke="#39d8ea"/>
+    <path d="M432 442 822 390" stroke="#39d8ea"/>
+    <path d="M535 330 943 316" stroke="#ff719d"/>
+  </g>
+  <g font-family="Inter,Arial,sans-serif" font-size="15" font-weight="700">
+    <rect x="618" y="195" width="130" height="34" rx="17" fill="#103a4a" stroke="#39d8ea" stroke-opacity=".5"/><text x="683" y="217" fill="#bdf8ff" text-anchor="middle">polar contact</text>
+    <rect x="652" y="298" width="132" height="34" rx="17" fill="#43203a" stroke="#ff719d" stroke-opacity=".55"/><text x="718" y="320" fill="#ffd7e4" text-anchor="middle">ionic contact</text>
+    <rect x="618" y="411" width="130" height="34" rx="17" fill="#103a4a" stroke="#39d8ea" stroke-opacity=".5"/><text x="683" y="433" fill="#bdf8ff" text-anchor="middle">polar contact</text>
+  </g>
+
+  <g transform="translate(64 544)" font-family="Inter,Arial,sans-serif">
+    <rect width="1072" height="50" rx="16" fill="#ffffff" fill-opacity=".06" stroke="#ffffff" stroke-opacity=".12"/>
+    <circle cx="28" cy="25" r="6" fill="#8f6cff"/><text x="45" y="31" fill="#c4d3de" font-size="15">Aromatic fit +1.2</text>
+    <circle cx="256" cy="25" r="6" fill="#39d8ea"/><text x="273" y="31" fill="#c4d3de" font-size="15">Polar alignment +1.45 each</text>
+    <circle cx="561" cy="25" r="6" fill="#ff719d"/><text x="578" y="31" fill="#c4d3de" font-size="15">Charge match +2.8</text>
+    <text x="1043" y="31" fill="#86a4b7" font-size="14" text-anchor="end">Not to molecular scale</text>
+  </g>
+</svg>
