@@ -1,0 +1,17 @@
+# dependencies
+/node_modules/
+
+# generated builds and caches
+/dist/
+/output/
+/.next/
+/.vinext/
+/.wrangler/
+/next-env.d.ts
+
+# local settings and operating-system files
+.DS_Store
+.env*
+*.pem
+npm-debug.log*
+
