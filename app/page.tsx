@@ -105,13 +105,17 @@ function SimulationCanvas({
   onFinish: (outcome: Outcome) => void;
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [canvasReady, setCanvasReady] = useState(false);
   const { score, outcome } = useMemo(() => calculateScore(features), [features]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const context = canvas.getContext('2d');
-    if (!context) return;
+    if (!context) {
+      onProgress('Animation unavailable in this browser — showing the contact map', 0);
+      return;
+    }
 
     let frame = 0;
     let animation = 0;
@@ -130,6 +134,9 @@ function SimulationCanvas({
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
+      // A kept-mounted tab has no size while hidden. Preserve its scene until
+      // it becomes visible again instead of shrinking the running simulation.
+      if (!rect.width || !rect.height) return;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       width = Math.max(320, rect.width);
       height = Math.max(320, rect.height);
@@ -403,6 +410,7 @@ function SimulationCanvas({
       context.font = '500 12px ui-sans-serif, system-ui, sans-serif';
       context.textAlign = 'left';
       context.fillText('AQUEOUS SPACE', 18, 28);
+      if (frame === dt) setCanvasReady(true);
       animation = requestAnimationFrame(draw);
     };
 
@@ -414,20 +422,25 @@ function SimulationCanvas({
   }, [features, onFinish, onProgress, outcome, runToken, score]);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="h-full min-h-[340px] w-full"
-      aria-label={`Animated educational model of a ${outcome.toLowerCase()} between the ligand and a simplified dopamine D2 receptor pocket.`}
-    >
-      <img
-        src="./dopamine-d2-contact-map.svg"
-        alt="Static contact map showing dopamine aligned with Asp114, Ser193, and Ser197 in the simplified D2 pocket."
+    <>
+      {!canvasReady && (
+        <img
+          className="canvas-fallback"
+          src="./dopamine-d2-contact-map.svg"
+          alt="Dopamine aligned with Asp114, Ser193, and Ser197 in the simplified D2 pocket."
+        />
+      )}
+      <canvas
+        ref={canvasRef}
+        className={`simulation-canvas h-full min-h-[340px] w-full${canvasReady ? ' is-ready' : ''}`}
+        aria-label={`Animated educational model of a ${outcome.toLowerCase()} between the ligand and a simplified dopamine D2 receptor pocket.`}
       />
-    </canvas>
+    </>
   );
 }
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState('lab');
   const [features, setFeatures] = useState<Features>(PRESETS[0].features);
   const [selectedPreset, setSelectedPreset] = useState('dopamine');
   const [runToken, setRunToken] = useState(0);
@@ -456,8 +469,10 @@ export default function Home() {
     setSelectedPreset(preset.id);
     setStatus(run ? 'Ligand released into solution' : 'Preset loaded — release when ready');
     setLiveContact(0);
-    if (run) setRunToken((value) => value + 1);
-    else setRunToken(0);
+    if (run) {
+      setActiveTab('lab');
+      setRunToken((value) => value + 1);
+    } else setRunToken(0);
   }, []);
 
   useEffect(() => {
@@ -541,14 +556,14 @@ export default function Home() {
         </div>
       </header>
 
-      <Tabs defaultValue="lab" className="lab-tabs">
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="lab-tabs">
         <TabsList aria-label="Lab sections" className="section-tabs">
           <TabsTrigger value="lab"><FlaskConical aria-hidden="true" /> Lab</TabsTrigger>
           <TabsTrigger value="model"><BookOpen aria-hidden="true" /> Model</TabsTrigger>
           <TabsTrigger value="tests"><Beaker aria-hidden="true" /> Prediction tests</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="lab" className="lab-content">
+        <TabsContent value="lab" className="lab-content" keepMounted>
           <aside className="control-panel" aria-label="Ligand controls">
             <div className="panel-intro">
               <p className="step-label">01 · Choose a ligand</p>

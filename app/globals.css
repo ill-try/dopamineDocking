@@ -130,6 +130,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .section-tabs { width: fit-content; margin-bottom: 1rem; }
 .section-tabs svg { width: 1rem; height: 1rem; margin-right: .35rem; }
 .lab-content { display: grid; grid-template-columns: minmax(285px, 350px) minmax(0, 1fr); gap: 1rem; }
+.lab-content[hidden] { display: none; }
 
 .control-panel, .simulation-panel, .info-view {
   border: 1px solid var(--border);
@@ -160,6 +161,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .outcome-transient { color: oklch(0.39 0.12 75); background: oklch(0.92 0.1 86); }
 .outcome-no { color: oklch(0.42 0.15 24); background: oklch(0.92 0.08 25); }
 .canvas-frame { position: relative; height: clamp(340px, 52vh, 540px); background: #071426; overflow: hidden; }
+.canvas-fallback { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.simulation-canvas { position: relative; display: block; visibility: hidden; }
+.simulation-canvas.is-ready { visibility: visible; }
 .canvas-legend { position: absolute; left: 1rem; bottom: .8rem; display: flex; flex-wrap: wrap; gap: .75rem; color: rgba(235,245,255,.76); font-size: .72rem; pointer-events: none; }
 .canvas-legend span { display: inline-flex; align-items: center; gap: .32rem; }
 .legend-dot { width: .5rem; height: .5rem; border-radius: 50%; }

@@ -65,3 +65,12 @@ test('the contact-map SVG is exported and social metadata uses the Pages URL', (
     /https:\/\/ill-try\.github\.io\/dopamineDocking\/dopamine-d2-contact-map\.svg/,
   );
 });
+
+test('the molecule fallback is visible outside canvas before JavaScript starts', () => {
+  // Browsers hide canvas children even when JavaScript fails to load.
+  const htmlWithoutCanvas = indexHtml.replace(/<canvas\b[^>]*>[\s\S]*?<\/canvas>/g, '');
+  assert.match(
+    htmlWithoutCanvas,
+    /<img\b[^>]*class="canvas-fallback"[^>]*src="\.\/dopamine-d2-contact-map\.svg"/,
+  );
+});
