@@ -1,15 +1,16 @@
 import type { NextConfig } from 'next';
 
-const repositoryName = process.env.GITHUB_REPOSITORY?.split('/')[1];
+const [repositoryOwner, repositoryName] = process.env.GITHUB_REPOSITORY?.split('/') ?? [];
 const isUserOrOrganizationPage = repositoryName?.endsWith('.github.io');
-const githubPagesBasePath =
-  process.env.GITHUB_ACTIONS === 'true' && repositoryName && !isUserOrOrganizationPage
-    ? `/${repositoryName}`
+const githubPagesPath = repositoryName && !isUserOrOrganizationPage ? `/${repositoryName}` : '';
+const githubPagesAssetPrefix =
+  process.env.GITHUB_ACTIONS === 'true' && repositoryOwner && repositoryName
+    ? `https://${repositoryOwner}.github.io${githubPagesPath}`
     : '';
 
 const nextConfig: NextConfig = {
   output: 'export',
-  assetPrefix: githubPagesBasePath,
+  assetPrefix: githubPagesAssetPrefix,
 };
 
 export default nextConfig;

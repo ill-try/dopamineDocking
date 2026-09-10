@@ -9,6 +9,8 @@
     "dev": "vinext dev",
     "build": "vinext build",
     "start": "wrangler dev --config dist/server/wrangler.json",
+    "test": "npm run test:pages",
+    "test:pages": "GITHUB_ACTIONS=true GITHUB_REPOSITORY=ill-try/dopamineDocking npm run build && node --test tests/github-pages-build.test.mjs",
     "lint": "oxlint",
     "format": "oxfmt"
   },
