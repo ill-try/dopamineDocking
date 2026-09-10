@@ -1,6 +1,14 @@
 # Dopamine Docking Lab
 
-An interactive, client-side biology model showing how selected dopamine features affect contact with a simplified dopamine D2 receptor pocket.
+An interactive, client-side biology model showing how specific functional-group replacements change contact with a simplified dopamine D2 receptor pocket.
+
+## What to try
+
+- Compare dopamine with 3-methoxytyramine, N-methyldopamine, and tyramine.
+- Replace either ring group with OH, OCH₃, or H, or change the amine tail.
+- Watch each contact pattern use a different explanatory motion: lock, rock, graze, slide, or deflect.
+
+Selections run immediately, and **Run again** repeats the current encounter.
 
 ## Run locally
 

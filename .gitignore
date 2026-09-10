@@ -8,10 +8,10 @@
 /.vinext/
 /.wrangler/
 /next-env.d.ts
+*.tsbuildinfo
 
 # local settings and operating-system files
 .DS_Store
 .env*
 *.pem
 npm-debug.log*
-
